@@ -44,6 +44,16 @@ public class Zadania {
         WebElement numbersRadioButtons = driver.findElement(By.className("number"));
         driver.quit();
     }
+
+    @Test
+    public void Zad4_findElementByTagName() {
+
+        WebDriver driver = getDriver();
+        /** Wybierz stopkę */
+        // Zlokalizuj stopkę, która znajduje się na dole strony za pomocą nazwy tagu i przypisz do zmiennej footer”
+        WebElement footer = driver.findElement(By.tagName("footer"));
+        driver.quit();
+    }
 }
 
 

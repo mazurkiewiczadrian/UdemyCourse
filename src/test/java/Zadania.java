@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class Zadania {
 
     public WebDriver getDriver() {
@@ -52,6 +54,39 @@ public class Zadania {
         /** Wybierz stopkę */
         // Zlokalizuj stopkę, która znajduje się na dole strony za pomocą nazwy tagu i przypisz do zmiennej footer”
         WebElement footer = driver.findElement(By.tagName("footer"));
+        driver.quit();
+    }
+
+    @Test
+    public void Zad5_findElementByCssSelector() {
+
+        WebDriver driver = getDriver();
+        /** Zlokalizuj pole "Wybierz kolor" */
+        //
+        WebElement coloursId = driver.findElement(By.cssSelector("#colour-select-multiple"));
+        WebElement coloursClassName = driver.findElement(By.cssSelector(".colour"));
+        WebElement coloursFullClassName = driver.findElement(By.cssSelector("select[class='wpcf7-form-control wpcf7-select colour']"));
+        driver.quit();
+    }
+
+    @Test
+    public void Zad6_findElementByXPath() {
+        WebDriver driver = getDriver();
+
+        WebElement number3 = driver.findElement(By.xpath("//*[contains(@id,'number-radio')]"))
+                .findElement(By.xpath("//*[@value='3']"));
+
+        WebElement greenColour = driver.findElement(By.xpath("//*[contains(@id,'colour')]"))
+                .findElement(By.xpath("//*[@value='Zielony']"));
+        driver.quit();
+    }
+
+    @Test
+    public void Zad7_findGroupOfElements() {
+        WebDriver driver = getDriver();
+
+        List<WebElement> options = driver.findElements(By.tagName("option"));
+
         driver.quit();
     }
 }
